@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import store from '../redux/configureStore';
-import randomGreeting from '../redux/actions/greeting';
+import { useDispatch, useSelector } from 'react-redux';
+import { greetingsFetch } from '../redux/greeting/greetings';
 
 const Greeting = () => {
-  const greeting = useSelector((state) => state.greeting);
+  const greeting = useSelector((state) => state.greetings);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    store.dispatch(randomGreeting());
-  }, []);
+    dispatch(greetingsFetch());
+  }, [dispatch]);
 
   return (
-    <h1>{greeting.greeting}</h1>
+    <h1>{greeting.message}</h1>
   );
 };
 
