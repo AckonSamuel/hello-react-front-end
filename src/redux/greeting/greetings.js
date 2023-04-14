@@ -9,9 +9,9 @@ const initialState = {
 };
 
 export const greetingsFetch = createAsyncThunk('greetings/greetingsFetch', async () => {
-  const res = await axios.get('https://localhost:3000/messages');
+  const res = await axios.get('http://localhost:3000/messages');
 
-  return res.data.data.attributes.greeting;
+  return res.data;
 });
 
 const greetingsFetchSlice = createSlice({
