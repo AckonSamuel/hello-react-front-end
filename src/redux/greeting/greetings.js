@@ -9,7 +9,7 @@ const initialState = {
 };
 
 export const greetingsFetch = createAsyncThunk('greetings/greetingsFetch', async () => {
-  const res = await axios.get('https://rails-1ubd.onrender.com/messages');
+  const res = await axios.get('https://localhost:3000/messages');
 
   return res.data.data.attributes.greeting;
 });
